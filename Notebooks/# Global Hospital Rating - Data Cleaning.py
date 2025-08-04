@@ -3,18 +3,6 @@
 
 import os
 import pandas as pd
-
-# Geçerli Python dosyasının bulunduğu klasörü bul
-current_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Veri dosyasının yolu: bir üst klasöre çık, Data klasörüne gir
-data_path = os.path.join(current_dir, "..", "Data", "hospital_survey_data_50.csv")
-
-# CSV dosyasını oku
-df = pd.read_csv(data_path)
-
-import os
-import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
@@ -23,17 +11,9 @@ from sklearn.metrics import classification_report, confusion_matrix
 import sys
 import subprocess
 
-# -- Optional: Install packages if not present (better to do this outside script) --
-def install_package(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-try:
-    import sklearn
-except ImportError:
-    print("scikit-learn is not installed, installing now...")
-    install_package("scikit-learn")
 
 # Load dataset
+current_dir = os.path.dirname(os.path.abspath(__file__))
 data_path = os.path.join(current_dir, "..", "Data", "hospital_survey_data_50.csv")
 df = pd.read_csv(data_path)
 
